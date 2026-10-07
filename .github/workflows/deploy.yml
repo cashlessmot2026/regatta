@@ -28,7 +28,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      # /regatta/admin funciona al recargar gracias a esta copia
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+      # /juego/admin funciona al recargar gracias a esta copia
       - run: cp dist/index.html dist/404.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
