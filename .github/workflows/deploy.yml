@@ -31,7 +31,7 @@ jobs:
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
       # /regatta/admin funciona al recargar gracias a esta copia
-      - run: cp dist/index.html dist/404.html
+      - run: cp dist/index.html dist/404.html && mkdir -p dist/admin && cp dist/index.html dist/admin/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
